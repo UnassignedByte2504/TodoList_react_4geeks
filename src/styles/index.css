@@ -1,12 +1,231 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+		'Lucida Sans', Arial, sans-serif;
+}
 
-/* 
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+body {
+	background-color: #f4f4f4ee;
+}
 
-*/
+.AppWrapper{
+	height: max-content;
+	border: 20px solid transparent;
+	border-radius: 20px;
+  	background-origin: padding-box, border-box;
+  	text-align: center;
+	background-image:
+        linear-gradient(45deg,rgb(42, 42, 43), rgb(16, 16, 29), rgb(37, 44, 51)),
+        linear-gradient(180deg, #00D7B9, #B95DD7 50%, #FFB367 100%);
+
+      background-repeat: no-repeat;
+      background-size: 100% 100%, 100% 200%;
+      background-position: 0 0, 0 100%;
+      background-origin: padding-box, border-box;
+      animation: highlight 1s infinite alternate;
+    }
+    @keyframes highlight {
+      100% {
+        background-position: 0 0, 0 0;
+      }
+    
+}
+
+
+.todo-app {
+	display: flex;
+	flex-direction: column;
+	justify-content: start;
+	width: 520px;
+	min-height: 600px;
+	background-color: rgba(rgb(5, 1, 1), rgb(9, 10, 9), rgb(11, 11, 14), .7);
+	text-align: center;
+	margin: 128px auto;
+	border-radius: 10px;
+	padding-bottom: 32px;
+}
+.Welcoming{
+	margin: 32px 0;
+	color: #fff;
+	font-size: 32px;
+	text-shadow: 4px 10px 10px #fff;
+}
+.complete {
+	text-decoration: line-through;
+	opacity: 0.4;
+	
+}
+
+.todo-form {
+	margin-bottom: 32px;
+}
+
+.todo-input {
+	padding: 14px 32px 14px 16px;
+	border-radius: 4px 0 0 4px;
+	border: 2px solid #5d0cff;
+	outline: none;
+	width: 320px;
+	background: transparent;
+	color: #fff;
+}
+
+.todo-input::placeholder {
+	color: #e2e2e2;
+}
+
+.todo-input:hover {
+	border-color: #fff;
+	box-shadow: 0 0 8px #fff;
+}
+
+.todo-button {
+	padding: 16px;
+	border: none;
+	border-radius: 0 4px 4px 0;
+	cursor: pointer;
+	outline: none;
+	background: linear-gradient(
+		90deg,
+		rgba(93, 12, 255, 1) 0%,
+		rgba(155, 0, 250, 1) 100%
+	);
+	color: #fff;
+	text-transform: capitalize;
+}
+
+.todo-button:hover{	
+	border-color: #fff;
+	box-shadow: 0 0 8px #fff;
+}
+
+.todo-input.edit {
+	border: 2px solid #149fff;
+}
+
+.todo-button.edit {
+	background: linear-gradient(
+		90deg,
+		rgba(20, 159, 255, 1) 0%,
+		rgba(17, 122, 255, 1) 100%
+	);
+	padding: 16px 22px;
+}
+
+.todo-container {
+	display: flex;
+	flex-direction: row;
+	position: relative;
+}
+
+
+.todo-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 4px auto;
+	color: #fff;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 118, 20, 1) 0%,
+		rgba(255, 84, 17, 1) 100%
+	);
+
+	padding: 16px;
+	border-radius: 5px;
+	width: 90%;
+	transition: 0.2s
+}
+.todo-row:hover { 
+	background: green;
+	border-color: #fff;
+	box-shadow: 0 0 8px #fff;}
+	
+
+.todo-row:nth-child(4n + 1) {
+	transition: 0.2s;
+	background: linear-gradient(
+		90deg,
+		rgba(93, 12, 255, 1) 0%,
+		rgba(155, 0, 250, 1) 100%
+	);
+}
+
+.todo-row:nth-child(4n + 1):hover {
+	background: green;
+}
+
+.todo-row:nth-child(4n + 2) {
+	transition: 0.2s;
+	background: linear-gradient(
+		90deg,
+		rgba(255, 12, 241, 1) 0%,
+		rgba(250, 0, 135, 1) 100%
+	);
+}
+.todo-row:nth-child(4n + 2):hover {
+	background: green;
+}
+
+.todo-row:nth-child(4n + 3) {
+	transition: 0.2s;
+	background: linear-gradient(
+		90deg,
+		rgba(20, 159, 255, 1) 0%,
+		rgba(17, 122, 255, 1) 100%
+	);
+}
+.todo-row:nth-child(4n + 3):hover {
+	background: green;
+}
+.HighPriorityMS{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 4px auto;
+	color: rgb(255, 0, 0);
+	font-weight: bold;
+	padding: 16px;
+	border-radius: 5px;
+	width: 90%;
+	transition: 0.2s;
+	background: linear-gradient(
+		90deg,
+		rgb(81, 255, 0) 0%,
+		rgb(255, 0, 0) 100%
+	);
+}
+.HighPriorityMS:hover{
+	background: rgb(46, 170, 35);
+	border-color: #fff;
+	box-shadow: 0 0 8px #fff;
+}
+.icons {
+	display: flex;
+	align-items: center;
+	font-size: 24px;
+	cursor: pointer;
+}
+
+.delete-icon {
+	margin-right: 5px;
+	color: #fff;
+	transition: 0.18s;
+}
+.delete-icon:hover {
+	color: red;
+}
+
+.edit-icon {
+	color: #fff;
+	transition: 0.18s;
+}
+
+.edit-icon:hover {
+	color: orange;
+}
+
+
